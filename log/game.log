@@ -305,3 +305,15 @@
 2017/01/09 20:36:04 logger.go:48: [DEBUG]workDir = /home/fancy/fancy.coresvr
 2017/01/09 20:36:04 logger.go:48: [DEBUG]confDir = /home/fancy/fancy.coresvr/conf
 2017/01/09 20:36:04 logger.go:48: [DEBUG]-----------------------core server start-----------------------
+2017/01/10 15:29:24 logger.go:48: [DEBUG]workDir = /home/fancy/fancy.coresvr
+2017/01/10 15:29:24 logger.go:48: [DEBUG]confDir = /home/fancy/fancy.coresvr/conf
+2017/01/10 16:32:16 logger.go:48: [DEBUG]workDir = /home/fancy/fancy.coresvr
+2017/01/10 16:32:16 logger.go:48: [DEBUG]confDir = /home/fancy/fancy.coresvr/conf
+2017/01/10 16:32:42 logger.go:48: [DEBUG]workDir = /home/fancy/fancy.coresvr
+2017/01/10 16:32:42 logger.go:48: [DEBUG]confDir = /home/fancy/fancy.coresvr/conf
+2017/01/10 16:32:42 logger.go:48: [DEBUG]-----------------------core server start-----------------------
+2017/01/10 16:33:45 logger.go:48: [DEBUG]workDir = /home/fancy/fancy.coresvr
+2017/01/10 16:33:45 logger.go:48: [DEBUG]confDir = /home/fancy/fancy.coresvr/conf
+2017/01/10 16:33:45 logger.go:48: [DEBUG]-----------------------core server start-----------------------
+2017/01/10 17:02:30 logger.go:48: [DEBUG]workDir = /home/fancy/fancy.coresvr
+2017/01/10 17:02:30 logger.go:48: [DEBUG]confDir = /home/fancy/fancy.coresvr/conf

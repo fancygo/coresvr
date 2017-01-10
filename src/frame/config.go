@@ -103,6 +103,9 @@ func GetSvrIP(id int) string {
 func GetSvrPort(id int) string {
 	return svrcfg.Svr[id].Port
 }
+func GetSvrName(id int) string {
+	return svrcfg.Svr[id].Name
+}
 
 func GetMysqlId() int {
 	return svrcfg.Sqlid.Mysql
