@@ -1,0 +1,44 @@
+#!/bin/bash
+workdir=$(cd `dirname $0`; pwd)
+srcdir=$workdir/src/server
+scptdir=$workdir/script
+GOPATH=$GOPATH:$workdir
+export GOPATH
+
+useropt=$1
+shift 1
+target=$@
+
+usage()
+{
+    echo "make"
+    echo "run"
+    echo "stop"
+}
+
+main()
+{
+    case $useropt in
+        make | m)
+            cd $scptdir
+            ./_build $srcdir $target
+            ;;
+        run)
+            ./bin/core_server core_server >> ./log/core.core.log 2>&1 &
+            ;;
+        runc)
+            ./bin/core_server -c
+            ;;
+        stop)
+            cd $scptdir
+            ./_stop $target
+            ;;
+        *)
+            usage
+            ;;
+    esac
+}
+
+set +x
+main
+set -x

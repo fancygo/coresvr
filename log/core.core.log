@@ -1,0 +1,11 @@
+-----------------------Main server start-----------------------
+2017/01/09 19:52:52.093761 dir.go:63:  [1;40;34m[DEBUG]workDir = /home/fancy/fancy.coresvr[0m 
+2017/01/09 19:52:52.093784 dir.go:64:  [1;40;34m[DEBUG]confDir = /home/fancy/fancy.coresvr/conf[0m 
+2017/01/09 19:52:52.094148 core_server.go:13:  [1;40;34m[DEBUG]-----------------------core server start-----------------------[0m 
+2017/01/09 19:52:52.094164 core_server.go:17:  [1;40;37m[TRACE]core svr addr = 10.105.248.119:9701[0m 
+2017/01/09 19:52:52.094177 core_server.go:18:  [1;40;34m[DEBUG]core svr addr = 10.105.248.119:9701[0m 
+2017/01/09 19:52:52.094190 core_server.go:19:  [1;40;32m[INFO]core svr addr = 10.105.248.119:9701[0m 
+2017/01/09 19:52:52.094204 core_server.go:20:  [1;40;35m[WARN]core svr addr = 10.105.248.119:9701[0m 
+2017/01/09 19:52:52.094218 core_server.go:21:  [1;40;36m[ERROR]core svr addr = 10.105.248.119:9701[0m 
+2017/01/09 19:52:52.094246 core_server.go:22:  [1;40;31m[FATAL]core svr addr = 10.105.248.119:9701[0m 
+2017/01/09 19:52:52.094346 core_server.go:30:  [1;40;34m[DEBUG]accept wait[0m 

@@ -1,0 +1,5 @@
+#!/bin/bash
+log_server/log_server &
+db_server/db_server &
+sleep 1
+main_server/main_server &

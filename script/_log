@@ -1,0 +1,17 @@
+#!/bin/bash
+PARA=$1
+LINE=$2
+main()
+{
+    cd ~/log
+    clear
+    case $PARA in
+        game)
+        tailf -100f game.log
+        ;;
+        *)
+        echo "需要参数 game"
+        exit
+    esac
+}
+main

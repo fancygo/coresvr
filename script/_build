@@ -1,0 +1,70 @@
+#!/bin/bash
+srcdir=$1
+target=$2
+
+echo $target
+echo $srcdir
+
+build_core()
+{
+    cd $srcdir/core_server
+    echo "build core_server ...."
+    go build
+    go install
+    cd ..
+}
+build_log()
+{
+    cd $srcdir/log_server
+    echo "build log_server ...."
+    go build
+    go install
+    cd ..
+}
+build_db()
+{
+    cd $srcdir/db_server
+    echo "build db_server ...."
+    go build
+    go install
+    cd ..
+}
+build_mysql()
+{
+    cd $srcdir/mysql
+    echo "build mysql ...."
+    go build
+    go install
+    cd ..
+}
+
+build_all()
+{
+    build_core
+    #build_log
+    #build_db
+    build_mysql
+}
+
+build()
+{
+    case $target in
+        core)
+            build_core
+            ;;
+        db)
+            build_db
+            ;;
+        mysql)
+            build_mysql
+            ;;
+        *)
+            build_all
+        exit
+    esac
+}
+
+set +x
+build
+set -x
+
