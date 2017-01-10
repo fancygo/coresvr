@@ -18,16 +18,18 @@ usage()
 
 main()
 {
+    server=${target}"_server"
+
     case $useropt in
         make | m)
             cd $scptdir
             ./_build $srcdir $target
             ;;
         run)
-            ./bin/core_server core_server >> ./log/core.core.log 2>&1 &
+            ./bin/$server $server >> ./log/"core."${server}".log" 2>&1 &
             ;;
         runc)
-            ./bin/core_server -c
+            ./bin/$server -c
             ;;
         stop)
             cd $scptdir

@@ -13,6 +13,14 @@ build_core()
     go install
     cd ..
 }
+build_game()
+{
+    cd $srcdir/game_server
+    echo "build game_server ...."
+    go build
+    go install
+    cd ..
+}
 build_log()
 {
     cd $srcdir/log_server
@@ -41,6 +49,7 @@ build_mysql()
 build_all()
 {
     build_core
+    build_game
     #build_log
     #build_db
     build_mysql
@@ -50,6 +59,9 @@ build()
 {
     case $target in
         core)
+            build_core
+            ;;
+        game)
             build_core
             ;;
         db)

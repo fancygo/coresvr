@@ -3,7 +3,6 @@ package frame
 //文件目录处理
 
 import (
-	"frame/logger"
 	"os"
 	_ "os/exec"
 	"path"
@@ -60,7 +59,5 @@ func dirInit(wd string) {
 		pidDir = path.Join(workDir, "pid")
 		logDir = path.Join(workDir, "log")
 		srcDir = path.Join(workDir, "src")
-		logger.Debug("workDir = %+v", workDir)
-		logger.Debug("confDir = %+v", confDir)
 	}
 }

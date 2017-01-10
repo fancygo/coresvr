@@ -1,9 +1,10 @@
-# srv
+# svr
 #游戏简介
-* core服务器实现 
+* 服务器实现 
 
 #服务器实现
-* 作为中心服务器
+* frame下为框架
+* server下为各个实际服务器的实现
 * 数据库建库, 落地全部使用gorm进行操作
 * 所有内部连接使用tcp
 * 协议通信使用的proto格式
@@ -19,6 +20,7 @@
 * src 源代码, 各文件作用, 见注释
 
 #编译
-./admin make生成core_server和mysql两个可执行文件
+./admin make生成可执行文件
 * mysql 初始化数据库
-* core_server 游戏主服务
+* core_server 中心服务器
+* game_server 游戏服务器

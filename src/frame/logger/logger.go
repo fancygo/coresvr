@@ -12,9 +12,11 @@ var gLogger *log.Logger
 var gStdLogger *log.Logger
 var console bool
 
-func init() {
+func Init(flag bool, svr_name string) {
+	console = flag
 	colorInit()
-	file, err := os.OpenFile("log/game.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, os.ModePerm)
+	logFile := "log/" + svr_name + "_server.log"
+	file, err := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, os.ModePerm)
 	if err != nil {
 		log.Fatalln("fail to create game.log")
 	}

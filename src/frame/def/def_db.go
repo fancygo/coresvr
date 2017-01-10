@@ -8,3 +8,19 @@ type User struct {
 	Gold  int
 	Info  string
 }
+
+type NormalCraft struct {
+	Id     int
+	Author string
+	Rect   int
+	Data   string
+	Praise int
+}
+
+type GoodCraft struct {
+	Id     int
+	Author string
+	Rect   int
+	Data   string
+	Praise int
+}

@@ -30,5 +30,5 @@ func (this *Svr) regFlags() {
 }
 
 func (this *Svr) initLogger() {
-	logger.SetConsole(*this.FlagConsole)
+	logger.Init(*this.FlagConsole, this.Name)
 }
