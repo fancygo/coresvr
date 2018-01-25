@@ -4,14 +4,18 @@ package main
 
 import (
 	"frame"
+	"frame/conn"
+	"frame/def"
 	"frame/logger"
 	"frame/svr"
 	"net"
+	"server/core_server/logic/msgproc"
+	"sync"
 )
 
 func main() {
 	//初始化主服务
-	svrId := frame.GetMainSvr()
+	svrId := def.CORE_SVR_ID
 	coreSvr := svr.NewSvr(svrId)
 	coreSvr.Init()
 
@@ -22,7 +26,18 @@ func main() {
 	listener, err := net.ListenTCP("tcp", tcp_addr)
 	frame.CheckErr(err)
 
-	//监听cli连接
+	waitGroup := &sync.WaitGroup{}
+	waitGroup.Add(1)
+	go doListen(listener, waitGroup)
+	waitGroup.Wait()
+}
+
+func doListen(listener *net.TCPListener, waitGroup *sync.WaitGroup) {
+	defer func() {
+		listener.Close()
+		waitGroup.Done()
+	}()
+	//监听svr_cli连接
 	for {
 		logger.Debug("accept wait")
 		connTcp, err := listener.AcceptTCP()
@@ -31,8 +46,9 @@ func main() {
 			continue
 		}
 		logger.Debug("connTcp = %+v, %s", connTcp.RemoteAddr().Network(), connTcp.RemoteAddr().String())
+		cliConn := conn.NewCliConn(connTcp)
+		cliConn.RegFunc(msgproc.ProcMsgData)
+		//conn.Add(cliConn)
+		go cliConn.HandleClient(nil)
 	}
-	//cliConn := conn.NewCliConn(connTcp)
-	//conn.Add(cliConn)
-	//go cliConn.HandleClient()
 }

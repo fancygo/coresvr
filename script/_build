@@ -62,7 +62,7 @@ build()
             build_core
             ;;
         game)
-            build_core
+            build_game
             ;;
         db)
             build_db

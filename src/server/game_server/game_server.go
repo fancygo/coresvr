@@ -4,10 +4,11 @@ package main
 
 import (
 	"frame"
-	_ "frame/def"
+	"frame/def"
 	"frame/logger"
 	"frame/svr"
 	"golang.org/x/net/websocket"
+	"net"
 	"net/http"
 	"server/game_server/conn"
 	_ "server/game_server/dbdata"
@@ -17,7 +18,6 @@ import (
 //_ module "server/game_server/game"
 
 func main() {
-	logger.Info("-----------------------Main server start-----------------------")
 	/*
 		//初始化db
 		if !dbdata.Init() {
@@ -41,16 +41,23 @@ func main() {
 		module.RankApi.DoSort()
 	*/
 
+	//连中心服务器
+	conn, err := net.Dial("tcp", "10.105.248.119:9701")
+	if err != nil {
+		logger.Error("connect error = %+v", err)
+	}
+	conn.Write([]byte("fancy"))
+
 	//初始化主服务, 使用websocket, 之前做过一版tcp连接, 也是因为客户端不好处理, 改成websocket
-	svrId := frame.GetMainSvr()
+	svrId := def.GAME_SVR_ID
 	gameSvr := svr.NewSvr(svrId)
 	gameSvr.Init()
 
 	wsAddr := frame.GetSvrIP(svrId) + ":" + frame.GetSvrPort(svrId)
-	logger.Info("wsAddr = %+v", wsAddr)
+	logger.Info("%s wsAddr = %+v", frame.GetSvrName(svrId), wsAddr)
 	http.Handle("/", websocket.Handler(cliHandler))
 	//监听
-	err := http.ListenAndServe(wsAddr, nil)
+	err = http.ListenAndServe(wsAddr, nil)
 	if err != nil {
 		logger.Error("websocket handle err = %+v", err)
 		return
